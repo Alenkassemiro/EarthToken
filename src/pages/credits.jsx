@@ -7,12 +7,11 @@ import { parseEther } from 'ethers/lib/utils.js';
 import Header from '@/components/Header/Header';
 import TokenCard from '@/components/TokenCard/TokenCard';
 
-
 import styles from '@/styles/Credits.module.scss';
 
 const Credits = () => {
   const [provider, setProvider] = useState(null);
-
+  const [signer, setSigner] = useState(null);
   useEffect(() => {
     const storedProviderData = JSON.parse(localStorage.getItem('provider'));
     if (storedProviderData) {
@@ -21,11 +20,14 @@ const Credits = () => {
         window.ethereum,
         network
       );
+      const signer = provider.getSigner();
+      setSigner(signer);
       setProvider(provider);
     }
   }, []);
 
-  const toucan = new ToucanClient('smartchain', provider);
+  const toucan = new ToucanClient('alfajores', provider);
+  signer && toucan.setSigner(signer);
 
   const [tokens, setTokens] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -51,13 +53,17 @@ const Credits = () => {
   });
 
   const redeemPoolToken = async () => {
-    const redeemedTokenAddress = await toucan.redeemMany(
-      'NCT',
-      addressArray,
-      parseEther('1.0')
+    const redeemedTokenAddress = await toucan.redeemAuto2(
+      "NCT",
+      parseEther("1")
     );
+    console.log(redeemedTokenAddress);
     redeemedTokenAddress && setTco2address(redeemedTokenAddress[0].address);
   };
+
+  const retireToken = async () => {
+    await toucan.retire(parseEther("1"), tokens[0].address);
+}
 
   return (
     <div>
@@ -80,6 +86,7 @@ const Credits = () => {
                   redeemPoolToken={redeemPoolToken}
                   token={token}
                   key={token.projectId}
+                  retireToken={retireToken}
                 />
               );
             })}
