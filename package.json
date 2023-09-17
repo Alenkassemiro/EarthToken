@@ -1,37 +1,35 @@
 {
-    "name": "EarthToken-Dapp",
-    "version": "1.0.0",
-    "description": "Custom Celo Composer project.",
-    "private": true,
-    "author": "Celo",
-    "license": "MIT",
-    "scripts": {
-        "react-app:dev": "yarn workspace @EarthToken-Dapp/react-app dev",
-        "react-app:build": "yarn workspace @EarthToken-Dapp/react-app build",
-        "react-app:start": "yarn workspace @EarthToken-Dapp/react-app start",
-        "react-app:lint": "yarn workspace @EarthToken-Dapp/react-app lint",
-        "hardhat:test": "yarn workspace @EarthToken-Dapp/hardhat test",
-        "hardhat:test-local": "yarn workspace @EarthToken-Dapp/hardhat test-local",
-        "hardhat:accounts": "yarn workspace @EarthToken-Dapp/hardhat accounts",
-        "hardhat:devchain": "yarn workspace @EarthToken-Dapp/hardhat devchain",
-        "hardhat:deploy": "yarn workspace @EarthToken-Dapp/hardhat deploy",
-        "hardhat:deploy-reset-watch": "yarn workspace @EarthToken-Dapp/hardhat deploy-reset-watch",
-        "hardhat:watch": "yarn workspace @EarthToken-Dapp/hardhat watch",
-        "hardhat:fork-mainnet": "yarn workspace @EarthToken-Dapp/hardhat fork-mainnet"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/celo-org/celo-composer.git"
-    },
-    "bugs": {
-        "url": "https://github.com/celo-org/celo-composer/issues"
-    },
-    "homepage": "https://github.com/celo-org/celo-composer/blob/main/README.md",
-    "workspaces": [
-        "packages/*"
-    ],
-    "keywords": [
-        "celo-composer",
-        "celo"
-    ]
+  "name": "@EarthToken-Dapp/react-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "ethers": "^5.7.2",
+    "framer-motion": "^10.12.10",
+    "lottie-react": "^2.4.0",
+    "next": "13.2.4",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-icons": "^4.8.0",
+    "react-loader-spinner": "^5.3.4",
+    "sass": "^1.62.1",
+    "toucan-sdk": "^1.0.4-beta",
+    "react-hot-toast": "^2.4.1"
+  },
+  "devDependencies": {
+    "@typechain/ethers-v5": "^11.1.1",
+    "@types/node": "20.4.5",
+    "@types/react": "18.2.18",
+    "@types/react-dom": "18.2.7",
+    "autoprefixer": "^10.4.14",
+    "typescript": "4.9.5"
+  },
+  "browser": {
+    "net": false
+  }
 }

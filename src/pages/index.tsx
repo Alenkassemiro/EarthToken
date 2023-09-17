@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
-import Header from "../components/Header/Header";
+import Header from "@/components/Header/Header";
 import Forms from "@/components/Forms/Forms";
 import Modal from "@/components/Modal/Modal";
 
 import styles from "@/styles/Home.module.scss";
-import Link from "next/link";
 
 export default function Home() {
   const [showModal, setShowModal] = useState(false);

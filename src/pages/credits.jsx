@@ -1,19 +1,31 @@
-import { useEffect, useState } from "react";
-import ToucanClient from "toucan-sdk";
-import { useProvider, useSigner } from "wagmi";
-import Header from "@/components/Header/Header";
-import TokenCard from "@/components/TokenCard/TokenCard";
-import { Toaster } from "react-hot-toast";
-import styles from "@/styles/Credits.module.scss";
-import { Token } from "@/components/TokenCard/TokenCard";
-import { parseEther } from "ethers/lib/utils.js";
-import { BigNumber } from "ethers";
+import { useEffect, useState } from 'react';
+import { Toaster } from 'react-hot-toast';
+import ToucanClient from 'toucan-sdk';
+import { ethers } from 'ethers';
+import { parseEther } from 'ethers/lib/utils.js';
+
+import Header from '@/components/Header/Header';
+import TokenCard from '@/components/TokenCard/TokenCard';
+
+
+import styles from '@/styles/Credits.module.scss';
 
 const Credits = () => {
-  const provider = useProvider();
-  const { data: signer, isError, isLoading } = useSigner();
-  const toucan = new ToucanClient("alfajores", provider);
-  signer && toucan.setSigner(signer);
+  const [provider, setProvider] = useState(null);
+
+  useEffect(() => {
+    const storedProviderData = JSON.parse(localStorage.getItem('provider'));
+    if (storedProviderData) {
+      const { network } = storedProviderData;
+      const provider = new ethers.providers.Web3Provider(
+        window.ethereum,
+        network
+      );
+      setProvider(provider);
+    }
+  }, []);
+
+  const toucan = new ToucanClient('smartchain', provider);
 
   const [tokens, setTokens] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -30,7 +42,7 @@ const Credits = () => {
     fetchData();
   }, []);
 
-  const [tco2address, setTco2address] = useState("");
+  const [tco2address, setTco2address] = useState('');
 
   let addressArray = [];
 
@@ -40,9 +52,9 @@ const Credits = () => {
 
   const redeemPoolToken = async () => {
     const redeemedTokenAddress = await toucan.redeemMany(
-      "NCT",
+      'NCT',
       addressArray,
-      parseEther("1.0")
+      parseEther('1.0')
     );
     redeemedTokenAddress && setTco2address(redeemedTokenAddress[0].address);
   };
