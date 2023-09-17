@@ -1,0 +1,66 @@
+.card{
+    width: 42rem;
+    padding: 2rem;
+    background: var(--neutral-600);
+    box-shadow: 2px 2px 25px #676E72;
+    border-radius: 2rem;
+    margin-bottom: 5rem;
+   
+
+}
+
+.cardImage{
+    width: 100%;
+
+    img{
+        width: 100%;
+        border-radius: 1.5rem;
+    }
+}
+
+.cardText {
+    margin-top: 1rem;
+
+
+    h1{
+        color: var(--neutral-0);
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+    }
+    
+    h3{
+        font-weight: 500;
+        color: var(--neutral-200);
+        margin-bottom: 0.5rem;
+    }
+    
+    p{
+        color: var(--neutral-200);
+        font-weight: 400;
+    }
+}
+
+.redeemButton{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    button{
+        background-color:  #39b044;
+        border: none;
+        padding: 1rem;
+        border-radius: 20px;
+        color: #fff;
+        font-weight: 500;
+        transition: 0.3s ease-in-out;
+
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
+}
+
+.columnItens{
+    display: flex;
+    flex-direction: column;
+}

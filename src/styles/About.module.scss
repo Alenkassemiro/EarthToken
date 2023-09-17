@@ -1,0 +1,69 @@
+.background {
+  background-image: url("/mainBackground.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 45rem;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: -10;
+
+  div {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, #3f4749 0%, rgba(0, 0, 0, 0) 100%);
+    border-bottom: none;
+  }
+}
+
+.main {
+  z-index: 10;
+  margin-top: 12rem;
+  padding: 0 3rem;
+}
+
+.titlePage {
+  font-size: 4.8rem;
+  font-weight: 600;
+  color: var(--primary-100);
+  margin-bottom: 5rem;
+}
+
+.aboutRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.aboutText {
+  width: 50%;
+
+  h1 {
+    color: var(--neutral-0);
+    font-size: 3.6rem;
+    font-weight: 500;
+  }
+
+  p {
+    color: var(--neutral-200);
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-top: 2rem;
+  }
+}
+
+.aboutImage {
+  width: 50rem;
+
+  img {
+    width: 100%;
+  }
+}
+
+.aiModal{
+  border-radius: 1rem;
+  box-shadow: 10px 10px 25px 0px rgba(0, 0, 0, 0.25);
+
+}

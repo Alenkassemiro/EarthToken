@@ -1,0 +1,38 @@
+.background {
+  background-image: url("/mainBackground.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 45rem;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: -10;
+
+  div {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, #3f4749 0%, rgba(0, 0, 0, 0) 100%);
+    border-bottom: none;
+  }
+}
+
+.main {
+  z-index: 10;
+  margin-top: 12rem;
+  padding: 0 3rem;
+}
+
+.titlePage {
+  font-size: 4.8rem;
+  font-weight: 600;
+  color: var(--neutral-0);
+  margin-bottom: 2rem;
+  color: var(--primary-100);
+}
+
+.TokenContainer {
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

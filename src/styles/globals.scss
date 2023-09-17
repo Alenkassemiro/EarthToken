@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --neutral-0: #ffffff;
+  --neutral-50: #d1d1d1;
+  --neutral-200: #A7A7A7;
+  --neutral-500: rgba(61, 68, 70, 0.95);
+  --neutral-600: #3f4749;
+  --neutral-900: #1e1e1e;
+  --primary-100: #39b044;
+  --primary-300: #2e8237;
+
+  font-size: 62.5%;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat", sans-serif !important;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::-webkit-scrollbar {
+    width: 0.8rem;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: var(--neutral-500);
+    border-radius: 1rem;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: var(--primary-100);
+    border-radius: 1rem;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-300);
+  } 
+}
+
+body {
+  background: var(--neutral-600);
+  max-width: 1400px;
+  margin: auto;
+}
+
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+
+  &:visited {
+    color: unset;
+  }
+}
+
+ul {
+  list-style: none;
+}

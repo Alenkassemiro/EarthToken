@@ -1,0 +1,27 @@
+.modal {
+  position: absolute;
+  background: var(--neutral-900);
+  color: var(--neutral-50);
+  margin: auto;
+  padding: 3rem 2rem 2rem;
+  max-width: 60rem;
+  height: calc(100vh - 4rem);
+
+  border-radius: 0.5rem; 
+  display: flex;
+  flex-direction: column;
+
+  svg{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 1rem;
+    fill: var(--primary-100);
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      cursor: pointer;
+      scale: 1.05;
+    }
+  }
+}
