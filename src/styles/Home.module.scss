@@ -1,5 +1,5 @@
 .background {
-  background-image: url("/mainBackground.svg");
+  background-image: url('/mainBackground.svg');
   background-repeat: no-repeat;
   background-size: cover;
   height: 45rem;
@@ -55,7 +55,8 @@
   align-items: center;
   gap: 2;
 
-  button, a {
+  button,
+  a {
     color: var(--neutral-0);
     border: 1px solid var(--primary-100);
     border-radius: 2.5rem;
@@ -143,5 +144,50 @@
   p {
     font-size: 1.8rem;
     text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .main {
+    margin-top: 5rem;
+  }
+
+  .actions{
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .textContent{
+    margin: auto;
+    padding: 0 2rem;
+  }
+
+  .firstSection {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+
+    div {
+      margin: 1rem 0;
+      width: 100%;
+    }
+  }
+
+  .secondSection {
+    padding: 0;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+
+    .row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+    }
   }
 }

@@ -36,29 +36,6 @@ const About = () => {
             </div>
           </div>
           <div className={styles.aboutRow}>
-            <div className={styles.aboutImage}>
-              <img src="/web3auth_modal.png" alt="web3auth_modal" />
-            </div>
-            <div className={styles.aboutText}>
-              <h1>
-                Democratization of access to web3 technology through social
-                media login and automatic wallet creation
-              </h1>
-              <p>
-                We aim to make web3 technology accessible to all users,
-                regardless of their previous experience. With the goal of
-                simplifying the onboarding process to our platform, we offer the
-                option of social media login, allowing you to easily connect and
-                start exploring the features immediately. Additionally, we
-                provide automatic wallet creation, eliminating the need for
-                advanced technical knowledge to set up a crypto wallet. By
-                removing these entry barriers, we are empowering more people to
-                participate in the carbon tokenization economy and contribute to
-                a sustainable future.
-              </p>
-            </div>
-          </div>
-          <div className={styles.aboutRow}>
             <div className={styles.aboutText}>
               <h1>
                 Calculation of your carbon footprint with artificial

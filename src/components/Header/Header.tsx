@@ -9,6 +9,7 @@ import { SiOpenbadges } from 'react-icons/si';
 import { BiLogOut } from 'react-icons/bi';
 
 import styles from './Header.module.scss';
+import MobileMenu from '../MenuMobile/MenuMobile';
 
 const Header = () => {
   const [provider, setProvider] = useState({});
@@ -27,7 +28,7 @@ const Header = () => {
       typeof window.ethereum !== 'undefined' ||
       // @ts-ignore
       typeof window.web3 !== 'undefined'
-      ) {
+    ) {
       // @ts-ignore
       const provider = new ethers.providers.Web3Provider(window.ethereum);
 
@@ -104,87 +105,102 @@ const Header = () => {
   useOutsideAlerter(wrapperRef);
 
   return (
-    <header className={styles.header}>
-      <div className={styles.logoBx}>
-        <Link href="/">
-          <img src="/logo.png" alt="logo" onClick={() => console.log(wallet)} />
-        </Link>
-      </div>
-      <nav className={styles.stroke}>
-        <ul>
-          <li className={router.pathname === '/' ? styles.active : ''}>
-            <Link href="/">Home</Link>
-          </li>
-          <li className={router.pathname === '/credits' ? styles.active : ''}>
-            <Link href="/credits">Credits</Link>
-          </li>
-          <li className={router.pathname === '/news' ? styles.active : ''}>
-            <Link href="/news">News</Link>
-          </li>
-          <li className={router.pathname === '/about' ? styles.active : ''}>
-            <Link href="/about">About</Link>
-          </li>
-          {wallet.address !== '' && (
-            <>
-              <li>
-                <p>{transformedAddress}</p>
-              </li>
-              <li>
-                <div
-                  className={styles.userIcon}
-                  onClick={() => setIsDropdownOpen((prevState) => !prevState)}
-                >
-                  <Image
-                    width={200}
-                    height={200}
-                    src={
-                      'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'
-                    }
-                    alt="Profile Image"
-                  />
-                </div>
-                <div
-                  className={`${styles.dropdownMenu} ${
-                    isDropdownlOpen ? styles.open : styles.closed
-                  }`}
-                  ref={menuRef}
-                >
-                  <ul>
-                    <li className={styles.dropdownItem}>
-                      <SiOpenbadges size={25} fill="black" />
-                      <Link
-                        href="#"
-                        onClick={() =>
-                          toast.loading('Feature under development', {
-                            duration: 3000,
-                            position: 'top-right',
-                          })
-                        }
-                      >
-                        My Badges
-                      </Link>
-                    </li>
-                    <li className={styles.dropdownItem}>
-                      <BiLogOut size={25} fill="black" />
-                      <Link onClick={disconnectWallet} href="#">
-                        Logout
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-            </>
-          )}
-          {wallet.address === '' && (
-            <li>
-              <button className={styles.loginBtn} onClick={connectWallet}>
-                Login
-              </button>
+    <>
+      <header className={styles.header}>
+        <div className={styles.logoBx}>
+          <Link href="/">
+            <img
+              src="/logo.png"
+              alt="logo"
+              onClick={() => console.log(wallet)}
+            />
+          </Link>
+        </div>
+        <nav className={styles.stroke}>
+          <ul>
+            <li className={router.pathname === '/' ? styles.active : ''}>
+              <Link href="/">Home</Link>
             </li>
-          )}
-        </ul>
-      </nav>
-    </header>
+            <li className={router.pathname === '/credits' ? styles.active : ''}>
+              <Link href="/credits">Credits</Link>
+            </li>
+            <li className={router.pathname === '/news' ? styles.active : ''}>
+              <Link href="/news">News</Link>
+            </li>
+            <li className={router.pathname === '/about' ? styles.active : ''}>
+              <Link href="/about">About</Link>
+            </li>
+            {wallet.address !== '' && (
+              <>
+                <li>
+                  <p>{transformedAddress}</p>
+                </li>
+                <li>
+                  <div
+                    className={styles.userIcon}
+                    onClick={() => setIsDropdownOpen((prevState) => !prevState)}
+                  >
+                    <Image
+                      width={200}
+                      height={200}
+                      src={
+                        'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'
+                      }
+                      alt="Profile Image"
+                    />
+                  </div>
+                  <div
+                    className={`${styles.dropdownMenu} ${
+                      isDropdownlOpen ? styles.open : styles.closed
+                    }`}
+                    ref={menuRef}
+                  >
+                    <ul>
+                      <li className={styles.dropdownItem}>
+                        <SiOpenbadges size={25} fill="black" />
+                        <Link
+                          href="#"
+                          onClick={() =>
+                            toast.loading('Feature under development', {
+                              duration: 3000,
+                              position: 'top-right',
+                            })
+                          }
+                        >
+                          My Badges
+                        </Link>
+                      </li>
+                      <li className={styles.dropdownItem}>
+                        <BiLogOut size={25} fill="black" />
+                        <Link onClick={disconnectWallet} href="#">
+                          Logout
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </>
+            )}
+            {wallet.address === '' && (
+              <li>
+                <button className={styles.loginBtn} onClick={connectWallet}>
+                  Login
+                </button>
+              </li>
+            )}
+          </ul>
+        </nav>
+      </header>
+      <MobileMenu
+        wallet={wallet}
+        connectWallet={connectWallet}
+        disconnectWallet={disconnectWallet}
+        isDropdownlOpen={isDropdownlOpen}
+        setIsDropdownOpen={setIsDropdownOpen}
+        transformedAddress={transformedAddress}
+        menuRef={menuRef}
+      />
+    </>
   );
 };
 
