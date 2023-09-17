@@ -7,11 +7,11 @@
   max-width: 60rem;
   height: calc(100vh - 4rem);
 
-  border-radius: 0.5rem; 
+  border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
 
-  svg{
+  svg {
     position: absolute;
     top: 0;
     right: 0;
@@ -23,5 +23,11 @@
       cursor: pointer;
       scale: 1.05;
     }
+  }
+}
+
+@media (max-width: 768px) {
+  .modal {
+    width: 95%;
   }
 }

@@ -36,3 +36,9 @@
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
+@media (max-width: 768px) {
+  .main{
+    margin-top: 6rem;
+  }
+}

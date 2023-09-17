@@ -1,5 +1,5 @@
 .background {
-  background-image: url("/mainBackground.svg");
+  background-image: url('/mainBackground.svg');
   background-repeat: no-repeat;
   background-size: cover;
   height: 45rem;
@@ -62,8 +62,36 @@
   }
 }
 
-.aiModal{
+.aiModal {
   border-radius: 1rem;
   box-shadow: 10px 10px 25px 0px rgba(0, 0, 0, 0.25);
+}
 
+@media (max-width: 768px) {
+  .main {
+    margin-top: 6rem;
+    padding: 0;
+  }
+
+  .titlePage {
+    margin-left: 3rem;
+  }
+
+  .aboutRow {
+    flex-direction: column;
+  }
+
+  .aboutText {
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  .aboutImage {
+    width: 90%;
+    margin: 2rem;
+  
+    img {
+      width: 100%;
+    }
+  }
 }
