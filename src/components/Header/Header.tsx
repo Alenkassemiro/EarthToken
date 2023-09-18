@@ -56,6 +56,8 @@ const Header = () => {
         0,
         4
       )}...${account.slice(-4)}`;
+      localStorage.setItem('wallet', JSON.stringify(account));
+      
       setTransformedAddress(transformedAddressVar);
       const balance = ethers.utils.formatEther(await wallet.getBalance());
       setWallet({
@@ -158,17 +160,7 @@ const Header = () => {
                     <ul>
                       <li className={styles.dropdownItem}>
                         <SiOpenbadges size={25} fill="black" />
-                        <Link
-                          href="#"
-                          onClick={() =>
-                            toast.loading('Feature under development', {
-                              duration: 3000,
-                              position: 'top-right',
-                            })
-                          }
-                        >
-                          My Badges
-                        </Link>
+                        <Link href="/retiredtokens">Retired Tokens</Link>
                       </li>
                       <li className={styles.dropdownItem}>
                         <BiLogOut size={25} fill="black" />

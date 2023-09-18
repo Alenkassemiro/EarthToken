@@ -1,35 +1,38 @@
-import { FC } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import { FC } from 'react';
 
-import styles from "./TokenCard.module.scss";
+import styles from './TokenCard.module.scss';
 
-export type Token = {
-  address: string;
-  name: string;
-  date: string;
-  projectId: string;
-  symbol: string;
+export type Props = {
+  token: {
+    address: string;
+    name: string;
+    date: string;
+    projectId: string;
+    symbol: string;
+  };
+  retireToken: (index: number) => {};
+  image: {
+    id: number;
+    url: string;
+    nome: string;
+    descricao: string;
+  };
+  index: number
 };
 
-const TokenCard: FC<{
-  token: Token;
-  redeemPoolToken: () => {};
-  image: string;
-}> = (props) => {
+const TokenCard: FC<Props> = (props: Props) => {
   const { name, date, symbol, projectId } = props.token;
-
-  const toastHandler = () => {
-    toast.loading("Feature under development", {
-      duration: 3000,
-      position: "top-right",
-    });
-  };
 
   return (
     <>
       <div className={styles.card}>
-        <div className={styles.cardImage}></div>
-
+        <div className={styles.cardImage}>
+          {props.image && props.image.url ? (
+            <img src={props.image.url} alt="image" />
+          ) : (
+            <></>
+          )}
+        </div>
         <div className={styles.cardText}>
           <h1>{name}</h1>
           <div className={styles.columnItens}>
@@ -38,10 +41,11 @@ const TokenCard: FC<{
           </div>
           <div className={styles.redeemButton}>
             <p>{symbol}</p>
-            <button onClick={toastHandler}>Redeem Token</button>
+            <button onClick={() => props.retireToken(props.index)}>
+              Retire Token
+            </button>
           </div>
         </div>
-        
       </div>
     </>
   );
