@@ -3,7 +3,7 @@ import { Toaster } from 'react-hot-toast';
 import ToucanClient from 'toucan-sdk';
 import { ethers } from 'ethers';
 import { parseEther } from 'ethers/lib/utils.js';
-
+import imagens from '@/components/TokenImages/TokenImages';
 import Header from '@/components/Header/Header';
 import TokenCard from '@/components/TokenCard/TokenCard';
 
@@ -32,7 +32,10 @@ const Credits = () => {
   const [tokens, setTokens] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  
+
   useEffect(() => {
+    
     const fetchData = async () => {
       setLoading(true);
       const tco2 = await toucan.fetchAllTCO2Tokens();
@@ -53,6 +56,9 @@ const Credits = () => {
   });
 
   const redeemPoolToken = async () => {
+    const tco2addresses = await toucan.redeemAuto2("NCT", parseEther("1"));
+    console.log(tco2addresses);
+
     const redeemedTokenAddress = await toucan.redeemAuto2(
       "NCT",
       parseEther("1")
@@ -78,19 +84,20 @@ const Credits = () => {
         >
           Credits
         </h1>
-        <div className={styles.TokenContainer}>
+        <di className={styles.TokenContainer}>
           {!loading &&
-            tokens.map((token) => {
+            tokens.map((token, index) => {
               return (
                 <TokenCard
                   redeemPoolToken={redeemPoolToken}
                   token={token}
                   key={token.projectId}
                   retireToken={retireToken}
+                  index={index <= 6 ? index : ""}
                 />
               );
             })}
-        </div>
+        </di>
       </main>
       <Toaster />
     </div>
