@@ -1,6 +1,5 @@
 import { FC } from "react";
 import toast, { Toaster } from "react-hot-toast";
-
 import styles from "./TokenCard.module.scss";
 
 export type Token = {
@@ -9,14 +8,14 @@ export type Token = {
   date: string;
   projectId: string;
   symbol: string;
-  retireToken: () => {};
 };
 
 const TokenCard: FC<{
   token: Token;
   retireToken: () => {};
   redeemPoolToken: () => {};
-  image: string;
+  image: any;
+  index: number;
 }> = (props) => {
   const { name, date, symbol, projectId } = props.token;
 
@@ -30,10 +29,11 @@ const TokenCard: FC<{
   return (
     <>
       <div className={styles.card}>
-        <div className={styles.cardImage}></div>
-
+        <div className={styles.cardImage}>
+         <img src={`/images/${props.index}.png`} alt="" />
+        </div>
         <div className={styles.cardText}>
-          <h1>{name}</h1>
+          <h1 onClick={() => {console.log(props.index)}}>{name}</h1>
           <div className={styles.columnItens}>
             <p>{projectId}</p>
             <p>{date}</p>
@@ -43,7 +43,6 @@ const TokenCard: FC<{
             <button onClick={props.redeemPoolToken}>Redeem Token</button>
           </div>
         </div>
-        
       </div>
     </>
   );
