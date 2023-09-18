@@ -75,17 +75,7 @@ const MobileMenu: FC<Props> = ({
                   <ul>
                     <li className={styles.dropdownItem}>
                       <SiOpenbadges size={25} fill="black" />
-                      <Link
-                        href="#"
-                        onClick={() =>
-                          toast.loading('Feature under development', {
-                            duration: 3000,
-                            position: 'top-right',
-                          })
-                        }
-                      >
-                        My Badges
-                      </Link>
+                      <Link href="/retiredTokens">Retired Tokens</Link>
                     </li>
                     <li className={styles.dropdownItem}>
                       <BiLogOut size={25} fill="black" />
@@ -97,7 +87,6 @@ const MobileMenu: FC<Props> = ({
                 </div>
               </div>
               <p>{transformedAddress}</p>
-
             </div>
           )}
           <button

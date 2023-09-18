@@ -37,7 +37,7 @@ const Modal = ({ handleClose, children }) => {
         animate="visible" 
         exit="exit"
       >
-        <AiOutlineCloseCircle size={25} onClick={handleClose}/>
+        <AiOutlineCloseCircle size={25} onClick={handleClose} className={styles.closeBtn}/>
         {children}
       </motion.div>
     </Backdrop>
