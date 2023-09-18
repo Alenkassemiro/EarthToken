@@ -92,11 +92,11 @@ const Credits = () => {
               tokens.map((token, index) => {
                 return (
                   <TokenCard
-                    redeemPoolToken={redeemPoolToken}
                     token={token}
                     key={token.projectId}
                     retireToken={retireToken}
-                    index={index <= 6 ? index : ''}
+                    image={index <= 6 ? Imagens[index] : ''}
+                    index={index}
                   />
                 );
               })}

@@ -11,8 +11,13 @@ export type Props = {
     symbol: string;
   };
   retireToken: (index: number) => {};
-  image: string;
-  index: number;
+  image: {
+    id: number;
+    url: string;
+    nome: string;
+    descricao: string;
+  };
+  index: number
 };
 
 const TokenCard: FC<Props> = (props: Props) => {
@@ -22,17 +27,23 @@ const TokenCard: FC<Props> = (props: Props) => {
     <>
       <div className={styles.card}>
         <div className={styles.cardImage}>
-         <img src={`/images/${props.index}.png`} alt="" />
+          {props.image && props.image.url ? (
+            <img src={props.image.url} alt="image" />
+          ) : (
+            <></>
+          )}
         </div>
         <div className={styles.cardText}>
-          <h1 onClick={() => {console.log(props.index)}}>{name}</h1>
+          <h1>{name}</h1>
           <div className={styles.columnItens}>
             <p>{projectId}</p>
             <p>{date}</p>
           </div>
           <div className={styles.redeemButton}>
             <p>{symbol}</p>
-            <button onClick={() => props.retireToken(props.index)}>Retire Token</button>
+            <button onClick={() => props.retireToken(props.index)}>
+              Retire Token
+            </button>
           </div>
         </div>
       </div>

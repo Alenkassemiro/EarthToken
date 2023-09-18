@@ -1,4 +1,4 @@
-const imagens = [
+const Imagens = [
   {
     id: 1,
     url: "/images/1.png",
@@ -36,4 +36,5 @@ const imagens = [
     descricao: "Esta é a imagem 6",
   },
 ];
-export default imagens;
+
+export default Imagens;
