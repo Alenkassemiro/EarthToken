@@ -1,30 +1,22 @@
-import { FC } from "react";
-import toast, { Toaster } from "react-hot-toast";
-import styles from "./TokenCard.module.scss";
+import { FC } from 'react';
 
-export type Token = {
-  address: string;
-  name: string;
-  date: string;
-  projectId: string;
-  symbol: string;
+import styles from './TokenCard.module.scss';
+
+export type Props = {
+  token: {
+    address: string;
+    name: string;
+    date: string;
+    projectId: string;
+    symbol: string;
+  };
+  retireToken: (index: number) => {};
+  image: string;
+  index: number;
 };
 
-const TokenCard: FC<{
-  token: Token;
-  retireToken: () => {};
-  redeemPoolToken: () => {};
-  image: any;
-  index: number;
-}> = (props) => {
+const TokenCard: FC<Props> = (props: Props) => {
   const { name, date, symbol, projectId } = props.token;
-
-  const toastHandler = () => {
-    toast.loading("Feature under development", {
-      duration: 3000,
-      position: "top-right",
-    });
-  };
 
   return (
     <>
@@ -40,7 +32,7 @@ const TokenCard: FC<{
           </div>
           <div className={styles.redeemButton}>
             <p>{symbol}</p>
-            <button onClick={props.redeemPoolToken}>Redeem Token</button>
+            <button onClick={() => props.retireToken(props.index)}>Retire Token</button>
           </div>
         </div>
       </div>
