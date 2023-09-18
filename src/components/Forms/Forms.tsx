@@ -3,7 +3,7 @@ import styles from "./Forms.module.scss";
 import { TailSpin } from "react-loader-spinner";
 import Link from "next/link";
 
-const API_KEY = "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";
+const API_KEY = process.env.NEXT_PUBLIC_OPENAIKEY;
 
 const Forms = () => {
   const [chatAnswer, setChatAnswer] = useState("");
@@ -34,8 +34,6 @@ const Forms = () => {
 
     const question = `Chat, I'll give you some of my data that are based on the average of a few months of my life. That said, I consume ${enteredElectricity} kWh of energy per month, where ${enteredRenewable}% comes from sustainable energy. In addition, I drive an average of ${enteredTransport} km per month with a vehicle that does ${enteredVehicleEfficiency} km per liter. I'm a person on a ${enteredDiet} diet and I waste around ${enteredFoodWaste} kg of food a month. In addition, I generate an average of ${enteredGarbage} kg of garbage and consume a total of ${enteredWater} liters of water. Based on this data, could you calculate my carbon footprint for me? No explanation needed, just the value and unit of measurement`;
 
-    console.log(question);
-
     const response = await fetch("https://api.openai.com/v1/completions", {
       method: "POST",
       headers: {
@@ -59,7 +57,7 @@ const Forms = () => {
 
   return (
     <>
-      <header className={styles.header}>
+      <header onClick={() => console.log(API_KEY)} className={styles.header}>
         <h1>Calculate your carbon footprint</h1>
       </header>
       {loading && (
