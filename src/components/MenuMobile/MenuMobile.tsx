@@ -39,6 +39,45 @@ const MobileMenu: FC<Props> = ({
 
   return (
     <div className={styles.mobileMenu}>
+      {wallet.address !== '' && (
+        <div className={styles.accountDetails}>
+          <div>
+            <div
+              className={styles.userIcon}
+              onClick={() => setIsDropdownOpen(!isDropdownlOpen)}
+            >
+              <Image
+                width={200}
+                height={200}
+                src={
+                  'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'
+                }
+                alt="Profile Image"
+              />
+            </div>
+            <div
+              className={`${styles.dropdownMenu} ${
+                isDropdownlOpen ? styles.open : styles.closed
+              }`}
+              ref={menuRef}
+            >
+              <ul>
+                <li className={styles.dropdownItem}>
+                  <SiOpenbadges size={25} fill="black" />
+                  <Link href="/retiredTokens">Retired Tokens</Link>
+                </li>
+                <li className={styles.dropdownItem}>
+                  <BiLogOut size={25} fill="black" />
+                  <Link onClick={disconnectWallet} href="#">
+                    Logout
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <p>{transformedAddress}</p>
+        </div>
+      )}
       <div className={styles.menuButton}>
         <button className={styles.toggleBtn} onClick={toggleMenu}>
           <AiOutlineMenu size={40} fill="var(--neutral-0)" />
