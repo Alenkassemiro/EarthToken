@@ -32,7 +32,7 @@ const About = () => {
               </p>
             </div>
             <div className={styles.aboutImage}>
-              <img src="/nftsImages2.svg" alt="nftImages" />
+              <img src="/nftImages.svg" alt="nftImages" />
             </div>
           </div>
           <div className={styles.aboutRow}>

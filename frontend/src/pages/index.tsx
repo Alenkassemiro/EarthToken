@@ -86,11 +86,11 @@ export default function Home() {
                   </div>
                   <h2>Technology and innovation</h2>
                   <p>
-                    A tecnologia Toucan, an infrastructure blockchain, provides
+                    The Toucan Technology, an infrastructure blockchain, provides
                     a secure and decentralized environment for asset
-                    tokenization. Integration with the Celo network allows for
+                    tokenization. Integration with the SmartChain network allows for
                     the exchange and transaction of carbon credit tokens within
-                    the Celo ecosystem, leveraging its trusted and efficient
+                    the ZENIQ ecosystem, leveraging its trusted and efficient
                     infrastructure.
                   </p>
                 </div>
