@@ -35,10 +35,21 @@ By utilizing the ZENIQ platform, you have the freedom to innovate and create pro
 
 - Sustainability:</br>
 ZENIQ is also a company with a sustainability focus, making it a platform that is friendly to initiatives like the Earth Token and demonstrating the concern we should have for our planet, Earth.
-## QR Code Nomo App Plugin
+## Nomo App Plugin
+
+### QR Code
+
 We have created a plugin integrated with the Nomo app to make access easier for all users.</br>
 </br>
 <img src="https://github.com/Alenkassemiro/EarthToken/assets/99203402/388262c0-07ba-44d8-83ea-35df76e86826" width="200px;" />
+
+### Plugin Link:
+
+https://nomo.app/pluginv1/earth-token.vercel.app/
+
+### Web Plataform Link:
+
+https://earth-token.vercel.app/
 
 ## Collaborators 
 <table>
