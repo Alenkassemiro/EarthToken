@@ -42,7 +42,7 @@ const TokenCard: FC<Props> = (props: Props) => {
           <div className={styles.redeemButton}>
             <p>{symbol}</p>
             <button onClick={() => props.retireToken(props.index)}>
-              Retire Token
+              Redeem Token
             </button>
           </div>
         </div>
