@@ -15,11 +15,11 @@
     "next": "13.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hot-toast": "^2.4.1",
     "react-icons": "^4.8.0",
     "react-loader-spinner": "^5.3.4",
     "sass": "^1.62.1",
-    "toucan-sdk": "^1.0.4-beta",
-    "react-hot-toast": "^2.4.1"
+    "toucan-sdk": "^1.0.4-beta"
   },
   "devDependencies": {
     "@typechain/ethers-v5": "^11.1.1",

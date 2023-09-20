@@ -1,7 +1,6 @@
 import { RefObject, useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import toast from 'react-hot-toast';
 import { ethers } from 'ethers';
 import Image from 'next/image';
 
@@ -158,10 +157,6 @@ const Header = () => {
                     ref={menuRef}
                   >
                     <ul>
-                      <li className={styles.dropdownItem}>
-                        <SiOpenbadges size={25} fill="black" />
-                        <Link href="/retiredtokens">Retired Tokens</Link>
-                      </li>
                       <li className={styles.dropdownItem}>
                         <BiLogOut size={25} fill="black" />
                         <Link onClick={disconnectWallet} href="#">
